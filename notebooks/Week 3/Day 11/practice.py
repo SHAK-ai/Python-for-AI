@@ -12,7 +12,7 @@ class Teacher():
         self.name : str = teacher_name
         self.id : int = teacher_id
         self.org : str = teacher_org
-        self.org = "ASHREITECH"
+        self.org = teacher_org
 
 
     def speak(self, words :str):
