@@ -2,7 +2,7 @@ materials
 quiz
 __pycache__
 .DS_Store
-.venv
+.venv*
 *_Solutions.ipynb
 *_Excercise.ipynb
 # exercises
