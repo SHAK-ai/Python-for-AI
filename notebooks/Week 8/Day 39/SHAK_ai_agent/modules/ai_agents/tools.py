@@ -33,7 +33,7 @@ def log_complaint(customer_name: str, order_id: str, phone: str, complaint: str)
     #     "status": "Pending"
     # }
     # complaint_list.append(temp_dict)
-
+    
 
     return {
         "message": f"Saved! Total Complaint: {len(complaint_list)}"
