@@ -5,14 +5,14 @@ from modules.ai_agent.graph import create_chat_model
 from modules.ai_agent.tools import fetch_menu, validate_order_id, log_complaint
 
 
-def build_supervisor(llm="ollama"):
+def build_supervisor(llm="groq"):
     model = create_chat_model(llm)
 
     menu_agent = create_react_agent(
         model=model,
         tools=[fetch_menu],
         name="menu_agent",
-        prompt="You answer menu and price questions. Prices are in PKR. Always use fetch_menu.",
+        prompt="You answer menu and price questions. Prices are in PKR. Always use fetch_menu. Write prices like Rs. 850, never use the peso sign.",
     )
     complaint_agent = create_react_agent(
         model=model,
@@ -23,11 +23,19 @@ def build_supervisor(llm="ollama"):
                 "Ask for missing details. Never invent a complaint ID."),
     )
 
+    customer_support_agent = create_react_agent(
+        model = model,
+        tools = [],
+        name = "customer_support_agent",
+        prompt = ("After serving customer you have to collect customer feedback")
+    )
+
     supervisor = create_supervisor(
         agents=[menu_agent, complaint_agent],
         model=model,
         prompt=("You are the manager of Xander Restaurant support. "
                 "Menu or price questions -> menu_agent. Complaints -> complaint_agent. "
-                "For greetings, answer yourself in one short line."),
+                "For greetings, answer yourself in one short line. "
+                "After a worker agent answers, write nothing more: repeat the worker's answer exactly."),
     )
     return supervisor.compile()

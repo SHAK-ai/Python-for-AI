@@ -1,6 +1,5 @@
-from langchain.core.tools import tool
-from core.database.sqlite import save_complaint
-
+from langchain_core.tools import tool
+from modules.core.database.sqlite import save_complaint
 
 order_list = [
     "OR-1045",

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <title>Xander — Your table, your way</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Xander home"><span class="brand-mark"><i></i><i></i><i></i></span><span>xander<span class="brand-dot">.</span></span></a>
+      <button class="new-chat" id="newChat"><span class="plus">＋</span> New conversation <kbd>⌘ K</kbd></button>
+      <div class="side-label">YOUR SPACE</div>
+      <div class="history" id="history"></div>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon">✳</span><div><strong>Here for the good stuff.</strong><small>Ask about our menu, orders, or anything else.</small></div></div>
+        <div class="profile"><div class="avatar user-avatar">Y</div><div class="profile-copy"><strong>You</strong><small>Guest session</small></div><button class="more" aria-label="More options">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle" aria-label="Open menu">☰</button><div class="mobile-brand">xander<span>.</span></div><div class="assistant-status"><span class="status-dot"></span> Xander assistant <span class="status-divider">·</span> <span class="status-sub">Restaurant support</span></div><button class="top-action" id="clearChat" title="Clear conversation" aria-label="Clear conversation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg><span>Clear chat</span></button></header>
+      <section class="chat-scroll" id="chatScroll">
+        <div class="conversation" id="conversation">
+          <section class="welcome" id="welcome">
+            <div class="welcome-orbit"><div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><div class="orbit-dot dot-one"></div><div class="orbit-dot dot-two"></div><div class="orbit-core"><span class="brand-mark big"><i></i><i></i><i></i></span></div></div>
+            <div class="eyebrow"><span class="sparkle">✳</span> YOUR XANDER CONCIERGE</div>
+            <h1>Good food starts<br>with a <em>good question.</em></h1>
+            <p class="welcome-copy">I can help with the menu, your order, or anything you need.<br>What can I make easier for you today?</p>
+            <div class="suggestions">
+              <button class="suggestion" data-prompt="Show me the menu and prices"><span class="suggestion-icon mint">↗</span><span><strong>Explore the menu</strong><small>See dishes & prices</small></span><span class="suggestion-arrow">→</span></button>
+              <button class="suggestion" data-prompt="Can you help me check my order?"><span class="suggestion-icon peach">⌁</span><span><strong>Check an order</strong><small>Get an order update</small></span><span class="suggestion-arrow">→</span></button>
+              <button class="suggestion" data-prompt="I need help with a complaint"><span class="suggestion-icon lilac">♡</span><span><strong>Get some help</strong><small>We're here to listen</small></span><span class="suggestion-arrow">→</span></button>
+            </div>
+          </section>
+        </div>
+      </section>
+      <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="messageInput" rows="1" placeholder="Message Xander..." aria-label="Message Xander"></textarea><div class="composer-footer"><div class="composer-hint"><span class="tiny-sparkle">✳</span> Here to help, any time</div><div class="composer-controls"><span class="enter-hint">↵ to send</span><button class="send-button" id="sendButton" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="M12 19V5m-7 7 7-7 7 7"/></svg></button></div></div></form><div class="disclaimer">Xander AI can make mistakes. Please double-check important details.</div></div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
